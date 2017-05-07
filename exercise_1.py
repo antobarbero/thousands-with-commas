@@ -3,11 +3,13 @@ def thousands_with_commas(i):
 	"""Receive an integer and returns a string with the number
 	with commas each three digits"""
 
-	if not type(i) == int:
-		raise TypeError("Parameter must be an integer.")
+	list_i = list(str(i))
+	tmp_list_i = copy.copy(list_i)
+	for n in range(len(list_i)-3, 0, -3):
+		tmp_list_i.insert(n, ',')
 	
-	i = "{:,}".format(i)		
-	return str(i)
+	i = ''.join(tmp_list_i)
+	return str(i)	
 	
 
 if __name__ == '__main__':
